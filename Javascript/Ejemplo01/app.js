@@ -18,4 +18,11 @@ function mi_funcion_con_let(){
     //TODO: Buscar una condicion para evaluar si la variable existe
     //console.log("valor de i al final "+i);
 }
+console.log("Tipos de datos");
+var tipoDeDatoNumerico = 7;
+var tipoDeDatoCadena = "siete";
+var fechaDeEstreno = new Date();
+console.log("resultado typeof numerico " +typeof tipoDeDatoNumerico);
+console.log("resultado typeof numerico " +typeof tipoDeDatoCadena);
+console.log("resultado typeof numerico " +typeof fechaDeEstreno);
 console.log("Adios mundo cruel!");
