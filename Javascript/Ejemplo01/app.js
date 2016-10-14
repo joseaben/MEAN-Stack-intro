@@ -58,6 +58,7 @@ pruebaDeArgumentos("pepe",1,3, "otro", new Date());
 
 function sumar(a, b){
     var suma = 0;
+    var contador = 0;
     if(arguments.length < arguments.callee.length){
         console.log("hay menos argumentos de los esperados");
       return;
@@ -65,13 +66,17 @@ function sumar(a, b){
     for(let i = 0; i < arguments.length; i++){
         if(typeof arguments[i] == 'number'){
            suma += arguments[i]; 
+           contador ++;
         }else{
             console.log("Este argumento no es numerico " + arguments[i]);
         }
     }
-    console.log("la suma es : " + suma);
+    if(contador >= 2){
+        console.log("la suma es : " + suma);    
+    }
+    
 }
-sumar(2,3);
+sumar(2,"prueba", 3);
 sumar(1);
 sumar(1,2,3,4,5,"pepe",7, "luis");
 
