@@ -76,9 +76,28 @@ function sumar(a, b){
     }
     
 }
-sumar(2,"prueba", 3);
-sumar(1);
+sumar(2,new Date(), 3);
+sumar(1, "Pedro","Luis");
 sumar(1,2,3,4,5,"pepe",7, "luis");
 
+console.log("Inicio de ejemplos de js de arrays");
+function testConArrays(){
+    let mi_array = new Array();
+    mi_array[0] = 7;
+    mi_array[1] = "valor";
+    mi_array[mi_array.length-1];
+    let mi_otro_array =[];
+    let otro = ["uno",2,new Date()];
+    //Arrays asociativos
+    let array_asociativo = new Array();
+    array_asociativo['uno'] = 1;
+    console.log("Aarray asociativo " + array_asocitivo['uno']);
+    let persona = new Array();
+    persona.nombre = "Ruben";
+    persona.apellido1 = "Gomez";
+    persona.pruebaDeArgumentos = pruebaDeArgumentos;
+    presona.pruebaDeArgumentos();
+    console.log("nombre completo " + persona.nombre + "" + persona.apellido1);
+}
 
 console.log("Adios mundo cruel!");
