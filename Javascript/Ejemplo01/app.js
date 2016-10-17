@@ -98,6 +98,35 @@ function testConArrays(){
     persona.pruebaDeArgumentos = pruebaDeArgumentos;
     presona.pruebaDeArgumentos();
     console.log("nombre completo " + persona.nombre + "" + persona.apellido1);
+
 }
 
 console.log("Adios mundo cruel!");
+
+//Clases
+function MiClase(campo1, campo2){
+    this.clave1 = campo1;
+    this.clave2 = campo2;
+    this.miMetodo = function (){
+     return this.clave1 + "-" + this.clave2;
+    };
+}
+MiClase.prototype.miMetodo = function (){
+     return this.clave1 + "-" + this.clave2;
+    };
+
+var miObjeto = new MiClase("uno","dos");
+
+console.log("El valor de la clave 1 es :" + miObjeto.clave1);
+console.log("Mi objeto tiene : " + miObjeto.miMetodo());
+
+Array.prototype.contiene = function (elemento){
+    for(let i = 0; i < this.length;i++){
+      if(this[i] == elemento){
+          return true;
+      }
+      return false;
+    };
+}
+var array = [1,2,3,4];
+console.log("Contiene el elemento : " + array.contiene("hola"));
