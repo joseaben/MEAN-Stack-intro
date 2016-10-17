@@ -130,3 +130,9 @@ Array.prototype.contiene = function (elemento){
 }
 var array = [1,2,3,4];
 console.log("Contiene el elemento : " + array.contiene("hola"));
+
+//Expresiones Regulares
+console.log(/texto a validar/.test("si hay texto a validar entoces true"));
+
+//Construccion de array asociativo
+let mi_info = { uno:1,dos:2,tres:3};
