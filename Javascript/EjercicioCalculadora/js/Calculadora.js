@@ -12,6 +12,9 @@ function Calculadora(){
   this.getMemoria = function (){
     return this.memoria;
   };
+  this.setMemoria = function(valor){
+    this.memoria = valor;
+  }
   this.borrar = function (){
     memoria = 0;
   };
