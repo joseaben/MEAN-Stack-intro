@@ -2,13 +2,16 @@ var miCalculadora;
 var operador;
 var pantalla;
 var result;
+var limpiarPantalla;
 function iniciar(){
     miCalculadora = new Calculadora();
     var arrayNumeros = new Array();
+    limpiarPantalla = true;
 
     pantalla = document.getElementById("pantalla");
     var resultado = document.getElementById("resultado");
     var memorizar = document.getElementById("memorizar");
+    var memorecall = document.getElementById("memorecall");
     var suma = document.getElementById("suma");
     var resta = document.getElementById("resta");
     var multiplicar = document.getElementById("multiplica");
@@ -17,6 +20,7 @@ function iniciar(){
 
     resultado.addEventListener('click',accionARealizar);
     memorizar.addEventListener('click',accionARealizar);
+    memorecall.addEventListener('click',accionARealizar);
     suma.addEventListener('click',accionARealizar);
     resta.addEventListener('click',accionARealizar);
     division.addEventListener('click',accionARealizar);
@@ -29,57 +33,68 @@ function iniciar(){
     }
 
 }
-function pintar(e){
-  var elemento = e.target;
-}
 function accionARealizar(e){
   let elemento = e.target;
 
   switch(elemento.value){
+    case 'M+':
+      miCalculadora.setAlmacenValor(pantalla.value);
+      break;
+    case 'MR':
+      pantalla.value = miCalculadora.getAlmacenValor();
+      break;
+    case 'C':
+      miCalculadora.borrar(pantalla);
+      limpiarPantalla = true;
+      break;
     case '=':
-      if(result != undefined){
-        pantalla.value = result;
-        result = undefined;
-        operador = undefined;
-      }
+      accionResultado();
       break;
     case '+':
-        operador = elemento.value;
-        if(result != undefined){
-          pantalla.value = result;
-        }
-        break;
-    case '-':
-      operador = elemento.value;
-      if(result != undefined){
-        pantalla.value = result;
+      if(operador){
+        accionResultado();
       }
+      accionOperador(elemento);
+      break;
+    case '-':
+      if(operador){
+        accionResultado();
+      }
+      accionOperador(elemento);
       break;
     case '*':
-      operador = elemento.value;
-      if(result != undefined){
-        pantalla.value = result;
+      if(operador){
+        accionResultado();
       }
+      accionOperador(elemento);
       break;
     case '\/':
-      operador = elemento.value;
-      if(result != undefined){
-        pantalla.value = result;
+      if(operador){
+        accionResultado();
       }
+      accionOperador(elemento);
       break;
     default:
-    if(miCalculadora.getMemoria() == 0){
-      miCalculadora.setMemoria(elemento.value);
-    }
-    if(operador != undefined){
-      pantalla.value = elemento.value;
-      result = miCalculadora.operar(operador,pantalla.value);
-      operador = undefined;
-    }else {
-      pantalla.value += elemento.value;
-    }
+     accionNumerica(elemento);
   }
+};
 
-}
+function accionResultado(){
+  pantalla.value = miCalculadora.operar(operador,pantalla.value);
+  miCalculadora.setMemoria(pantalla.value);
+};
+function accionOperador(elemento){
+  miCalculadora.setMemoria(pantalla.value);
+  operador = elemento.value;
+  limpiarPantalla = true;
+};
+function accionNumerica(elemento){
+  if(limpiarPantalla){
+    pantalla.value = elemento.value;
+    limpiarPantalla = false;
+  }else{
+   pantalla.value += elemento.value;
+  }
+};
 
 addEventListener('load',iniciar);
