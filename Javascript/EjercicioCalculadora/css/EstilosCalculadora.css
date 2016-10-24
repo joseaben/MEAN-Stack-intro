@@ -1,0 +1,16 @@
+body{
+  text-align: center;
+}
+input[type = button]{
+    width:50px;
+}
+#resultado{
+    width:103px;
+}
+input[type = text]{
+    width:210px;
+}
+#contenedor{
+  width: 600px;
+  margin: 15px auto;
+}
