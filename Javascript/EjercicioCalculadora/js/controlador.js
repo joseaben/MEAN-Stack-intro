@@ -40,64 +40,48 @@ function iniciar(){
 function accionARealizar(e){
   let elemento = e.target;
 
-  switch(elemento.value){
-    case '.':
-      if(!(pantalla.value).match(/\./)){
-        pantalla.value += '.';
-        limpiarPantalla = false;
-      }
-      break;
-    case 'M+':
-      miCalculadora.setAlmacenValor(pantalla.value);
-      break;
-    case 'MR':
-      pantalla.value = miCalculadora.getAlmacenValor();
-      break;
-    case 'C':
-      miCalculadora.borrar(pantalla);
-      limpiarPantalla = true;
-      break;
-    case '=':
-      accionResultado();
-      break;
-    case '+':
-      if(operador && !mostradoResultado){
+  if(elemento.value == '+' || elemento.value == '-' || elemento.value == '*' || elemento.value == '\/'){
+     if(operador && !mostradoResultado){
         accionResultado();
       }
       accionOperador(elemento);
-      break;
-    case '-':
-      if(operador && !mostradoResultado){
+  }else{
+      switch(elemento.value){
+      case '.':
+        if(!(pantalla.value).match(/\./)){
+          pantalla.value += '.';
+          limpiarPantalla = false;
+        }
+        break;
+      case 'M+':
+        miCalculadora.setAlmacenValor(pantalla.value);
+        break;
+      case 'MR':
+        pantalla.value = miCalculadora.getAlmacenValor();
+        break;
+      case 'C':
+        miCalculadora.borrar(pantalla);
+        limpiarPantalla = true;
+        break;
+      case '=':
         accionResultado();
-      }
-      accionOperador(elemento);
-      break;
-    case '*':
-      if(operador && !mostradoResultado){
-        accionResultado();
-      }
-      accionOperador(elemento);
-      break;
-    case '\/':
-      if(operador && !mostradoResultado){
-        accionResultado();
-      }
-      accionOperador(elemento);
-      break;
-    default:
-     accionNumerica(elemento);
+        mostradoResultado = true;
+        break;
+      default:
+      accionNumerica(elemento);
+    }
   }
 };
 
 function accionResultado(){
   pantalla.value = miCalculadora.operar(operador,pantalla.value);
   miCalculadora.setMemoria(pantalla.value);
-  mostradoResultado = true;
 };
 function accionOperador(elemento){
   miCalculadora.setMemoria(pantalla.value);
   operador = elemento.value;
   limpiarPantalla = true;
+  mostradoResultado = false;
 };
 function accionNumerica(elemento){
   if(limpiarPantalla){
