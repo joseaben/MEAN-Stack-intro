@@ -3,10 +3,12 @@ var operador;
 var pantalla;
 var result;
 var limpiarPantalla;
+var mostradoResultado;
 function iniciar(){
     miCalculadora = new Calculadora();
     var arrayNumeros = new Array();
     limpiarPantalla = true;
+    mostradoResultado = false;
 
     pantalla = document.getElementById("pantalla");
     var resultado = document.getElementById("resultado");
@@ -17,6 +19,7 @@ function iniciar(){
     var multiplicar = document.getElementById("multiplica");
     var dividir = document.getElementById("division");
     var limpiar = document.getElementById("limpiar");
+    var punto = document.getElementById("punto");
 
     resultado.addEventListener('click',accionARealizar);
     memorizar.addEventListener('click',accionARealizar);
@@ -26,6 +29,7 @@ function iniciar(){
     division.addEventListener('click',accionARealizar);
     multiplica.addEventListener('click',accionARealizar);
     limpiar.addEventListener('click',accionARealizar);
+    punto.addEventListener('click',accionARealizar);
 
     for(let numero = 0; numero < 10; numero++){
       arrayNumeros[numero] = document.getElementById(numero.toString());
@@ -37,6 +41,12 @@ function accionARealizar(e){
   let elemento = e.target;
 
   switch(elemento.value){
+    case '.':
+      if(!(pantalla.value).match(/\./)){
+        pantalla.value += '.';
+        limpiarPantalla = false;
+      }
+      break;
     case 'M+':
       miCalculadora.setAlmacenValor(pantalla.value);
       break;
@@ -51,25 +61,25 @@ function accionARealizar(e){
       accionResultado();
       break;
     case '+':
-      if(operador){
+      if(operador && !mostradoResultado){
         accionResultado();
       }
       accionOperador(elemento);
       break;
     case '-':
-      if(operador){
+      if(operador && !mostradoResultado){
         accionResultado();
       }
       accionOperador(elemento);
       break;
     case '*':
-      if(operador){
+      if(operador && !mostradoResultado){
         accionResultado();
       }
       accionOperador(elemento);
       break;
     case '\/':
-      if(operador){
+      if(operador && !mostradoResultado){
         accionResultado();
       }
       accionOperador(elemento);
@@ -82,6 +92,7 @@ function accionARealizar(e){
 function accionResultado(){
   pantalla.value = miCalculadora.operar(operador,pantalla.value);
   miCalculadora.setMemoria(pantalla.value);
+  mostradoResultado = true;
 };
 function accionOperador(elemento){
   miCalculadora.setMemoria(pantalla.value);
