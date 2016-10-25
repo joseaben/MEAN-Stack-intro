@@ -27,9 +27,9 @@ function deleteFirstElement(){
    $("li").eq(0).remove();
 }
 function deleteFirstAndSecond(){
-    $("li").lt(2).remove();
+    $("li :lt(2)").remove();
 }
 function deletePreAndLast(){
     let posicion = $("li").length-3;
-    $("li").gt(posicion).remove();
+    $("li:gt("+posicion+")").remove();
 }
