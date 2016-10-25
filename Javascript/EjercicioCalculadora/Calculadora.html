@@ -8,35 +8,31 @@
     <script type="text/javascript" src="js/Calculadora.js"></script>
 </head>
 <body>
-
-    <section id="contenedor">
+    <div id="contenedor">
+      <div id="recuadro_display">
         <input type="text" name="pantalla" id="pantalla" value="0" readonly>
-        <br>
-        <input type="button" name="uno" id="1" value="1">
-        <input type="button" name="dos" id="2" value="2">
-        <input type="button" name="tres" id="3" value="3">
-        <input type="button" name="suma" id="suma" value="+">
-        <br>
-        <input type="button" name="cuatro" id="4" value="4">
-        <input type="button" name="cinco" id="5" value="5">
-        <input type="button" name="seis" id="6" value="6">
-         <input type="button" name="resta" id="resta" value="-">
-        <br>
-        <input type="button" name="siete" id="7" value="7">
-        <input type="button" name="ocho" id="8" value="8">
-        <input type="button" name="nueve" id="9" value="9">
-         <input type="button" name="multiplica" id="multiplica" value="*">
-       <br>
-        <input type="button" name="cero" id="0" value="0">
-        <input type="button" name="division" id="division" value="/">
-        <input type="button" name="limpiar" id="limpiar" value="C">
-        <input type="button" name="memorizar" id="memorizar" value="M+">
-
-        <br>
-         <input type="button" name="resultado" id="resultado" value="=">
-         <input type="button" name="punto" id="punto" value=".">
-         <input type="button" name="memorecall" id="memorecall" value="MR">
-
-    </section>
+      </div>
+      <div id="teclado">
+        <input type="button" name="uno" id="1"  class="numeros" value="1"/>
+        <input type="button" name="dos" id="2" class="numeros" value="2"/>
+        <input type="button" name="tres" class="numeros" id="3" value="3"/>
+        <input type="button" name="cuatro" id="4" class="numeros" value="4"/>
+        <input type="button" name="cinco" id="5" class="numeros" value="5"/>
+        <input type="button" name="seis" id="6" class="numeros" value="6"/>
+        <input type="button" name="siete" id="7" class="numeros" value="7"/>
+        <input type="button" name="ocho" id="8" class="numeros" value="8"/>
+        <input type="button" name="nueve" id="9" class="numeros" value="9"/>
+        <input type="button" name="cero" id="0" class="numeros" value="0"/>
+        <input type="button" name="punto" id="punto" value="."/>
+        <input type="button" name="limpiar" id="limpiar" value="C"/>
+        <input type="button" name="memorizar" id="memorizar" value="M+"/>
+        <input type="button" name="suma" id="suma" class="operadores" value="+"/>
+        <input type="button" name="resta" id="resta" class="operadores" value="-"/>
+        <input type="button" name="memorecall" id="memorecall" value="MR"/>
+        <input type="button" name="multiplica" id="multiplica" class="operadores" value="*"/>
+        <input type="button" name="division" id="division" class="operadores" value="/"/>
+        <input type="button" name="resultado" id="resultado" value="="/>
+      </div>
+    </div>
 </body>
 </html>

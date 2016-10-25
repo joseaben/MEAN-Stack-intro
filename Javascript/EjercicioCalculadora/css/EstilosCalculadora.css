@@ -2,29 +2,42 @@ body{
   text-align: center;
 }
 input[type = button]{
-  background-color: #4CAF50;
-  border: none;
-  color: white;
+  color: black;
   padding: 15px 40px;
+  margin: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  border: 1px solid;
   cursor: pointer;
   outline: none;
+  width:100px;
 }
-#resultado{
-    width:103px;
-    padding: 15px 90px;
+input[type = button]:active{
+  background-color: #585858 !important;
 }
 input[type = text]{
-    width:250px;
-    padding: 15px 32px;
-    font-size: 16px;
+    width:350px;
+    padding: 15px 30px;
+    font-size: 40px;
+    background-color: #000000;
+    text-align: right;
+    color: white;
 
 }
 #contenedor{
-  width: 960px;
+  width: 420px;
   margin: 15px auto;
+  border: 1px solid;
+}
+#resultado{
+  width: 400px;
+  background-color: #FF8000;
+}
+.operadores{
+  background-color: #FF8000;
+}
+.numeros{
+  background-color: #E6E6E6;
 }

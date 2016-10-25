@@ -41,7 +41,7 @@ function accionARealizar(e){
   let elemento = e.target;
 
   if(elemento.value == '+' || elemento.value == '-' || elemento.value == '*' || elemento.value == '\/'){
-     if(operador && !mostradoResultado){
+     if(operador && !limpiarPantalla && !mostradoResultado){
         accionResultado();
       }
       accionOperador(elemento);
@@ -65,7 +65,6 @@ function accionARealizar(e){
         break;
       case '=':
         accionResultado();
-        mostradoResultado = true;
         break;
       default:
       accionNumerica(elemento);
@@ -76,6 +75,7 @@ function accionARealizar(e){
 function accionResultado(){
   pantalla.value = miCalculadora.operar(operador,pantalla.value);
   miCalculadora.setMemoria(pantalla.value);
+  mostradoResultado = true;
 };
 function accionOperador(elemento){
   miCalculadora.setMemoria(pantalla.value);
