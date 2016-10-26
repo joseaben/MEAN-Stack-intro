@@ -1,0 +1,1 @@
+Este es el contenido del fichero para el ejemplo de ajax con jquery.
