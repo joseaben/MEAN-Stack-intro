@@ -1,7 +1,9 @@
 $(document).ready(initializeEvents);
 function initializeEvents(){
     $("#guardar").click(addRegister);
+    $("#borrar").click(deleteRegister);
     loadRegistros();
+  
 }
 function addRegister(){
  $.ajax({
@@ -40,8 +42,11 @@ function resultadoGet(data,status){
         for(let peliculas = 0; peliculas < data.length;peliculas++){
             $("table").append("<tr><td>" + data[peliculas].id +"</td>"+"<td>"+data[peliculas].titulo+"</td>"+"<td>"+data[peliculas].director+"</td>"+"<td>"+data[peliculas].sipnosis+"</td>"+"<td>"+data[peliculas].fecha+"</td></tr>");
         }
-        
-     
+         $("tr").click(presionFila);
     }
 
+}
+function presionFila(){
+    let filaActual = $(this);
+    alert($(this).find('td').html());
 }
