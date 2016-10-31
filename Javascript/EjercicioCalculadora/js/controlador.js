@@ -1,39 +1,30 @@
+$(document).ready(iniciar);
 var miCalculadora;
 var operador;
 var pantalla;
 var result;
 var limpiarPantalla;
 var mostradoResultado;
+
 function iniciar(){
     miCalculadora = new Calculadora();
     var arrayNumeros = new Array();
     limpiarPantalla = true;
     mostradoResultado = false;
 
-    pantalla = document.getElementById("pantalla");
-    var resultado = document.getElementById("resultado");
-    var memorizar = document.getElementById("memorizar");
-    var memorecall = document.getElementById("memorecall");
-    var suma = document.getElementById("suma");
-    var resta = document.getElementById("resta");
-    var multiplicar = document.getElementById("multiplica");
-    var dividir = document.getElementById("division");
-    var limpiar = document.getElementById("limpiar");
-    var punto = document.getElementById("punto");
-
-    resultado.addEventListener('click',accionARealizar);
-    memorizar.addEventListener('click',accionARealizar);
-    memorecall.addEventListener('click',accionARealizar);
-    suma.addEventListener('click',accionARealizar);
-    resta.addEventListener('click',accionARealizar);
-    division.addEventListener('click',accionARealizar);
-    multiplica.addEventListener('click',accionARealizar);
-    limpiar.addEventListener('click',accionARealizar);
-    punto.addEventListener('click',accionARealizar);
+    pantalla = $("#pantalla");
+    $("#resultado").click(accionARealizar);
+    $("#memorizar").click(accionARealizar);
+    $("#memorecall").click(accionARealizar);
+    $("#suma").click(accionARealizar);
+    $("#resta").click(accionARealizar);
+    $("#multiplica").click(accionARealizar);
+    $("#division").click(accionARealizar);
+    $("#limpiar").click(accionARealizar);
+    $("#punto").click(accionARealizar);
 
     for(let numero = 0; numero < 10; numero++){
-      arrayNumeros[numero] = document.getElementById(numero.toString());
-      arrayNumeros[numero].addEventListener('click',accionARealizar);
+      $("#" +numero.toString()).click(accionARealizar);
     }
 
 }
@@ -48,19 +39,20 @@ function accionARealizar(e){
   }else{
       switch(elemento.value){
       case '.':
-        if(!(pantalla.value).match(/\./)){
-          pantalla.value += '.';
+        if(!(pantalla.val()).match(/\./)){
+          pantalla.val(pantalla.val() +  '.');
           limpiarPantalla = false;
         }
         break;
       case 'M+':
-        miCalculadora.setAlmacenValor(pantalla.value);
+        miCalculadora.setAlmacenValor(pantalla.val());
         break;
       case 'MR':
-        pantalla.value = miCalculadora.getAlmacenValor();
+        pantalla.val(miCalculadora.getAlmacenValor());
         break;
       case 'C':
-        miCalculadora.borrar(pantalla);
+        miCalculadora.borrar();
+        pantalla.val(0);
         limpiarPantalla = true;
         break;
       case '=':
@@ -73,23 +65,21 @@ function accionARealizar(e){
 };
 
 function accionResultado(){
-  pantalla.value = miCalculadora.operar(operador,pantalla.value);
-  miCalculadora.setMemoria(pantalla.value);
+  pantalla.val(miCalculadora.operar(operador,pantalla.val()));
+  miCalculadora.setMemoria(pantalla.val());
   mostradoResultado = true;
 };
 function accionOperador(elemento){
-  miCalculadora.setMemoria(pantalla.value);
+  miCalculadora.setMemoria(pantalla.val());
   operador = elemento.value;
   limpiarPantalla = true;
   mostradoResultado = false;
 };
 function accionNumerica(elemento){
   if(limpiarPantalla){
-    pantalla.value = elemento.value;
+    pantalla.val(elemento.value);
     limpiarPantalla = false;
   }else{
-   pantalla.value += elemento.value;
+   pantalla.val(pantalla.val() + elemento.value);
   }
 };
-
-addEventListener('load',iniciar);

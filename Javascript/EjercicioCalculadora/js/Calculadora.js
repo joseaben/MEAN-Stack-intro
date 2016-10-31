@@ -29,9 +29,8 @@ Calculadora.prototype.getMemoria = function (){
 Calculadora.prototype.setMemoria = function(valor){
   this.memoria = valor;
 }
-Calculadora.prototype.borrar = function (pantalla){
+Calculadora.prototype.borrar = function (){
   this.memoria = 0;
-  pantalla.value = 0;
 };
 Calculadora.prototype.setAlmacenValor = function (valor){
   this.almacenValor = valor;
