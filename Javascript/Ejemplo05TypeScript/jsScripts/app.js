@@ -11,23 +11,40 @@ function cumplirAnios(fechaCumpleanios) {
     fechaCumpleanios.anio++;
 }
 //Definicion de clases
-var Persona = (function () {
+class Persona {
     //Metodo constructor
-    function Persona(nombre, apellido1, apellido2) {
+    constructor(nombre, apellido1, apellido2) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
     }
-    Persona.prototype.stringify = function () {
+    stringify() {
         return this.nombre + " " + this.apellido1 + " " + this.apellido2;
-    };
-    return Persona;
-}());
+    }
+}
 //Sin metodo constructor
 /*let ruben = new Persona();
 ruben.nombre ="Ruben";
 ruben.apellido1 = "Gomez";
 ruben.apellido2 = "Garcia";*/
 //Con metodo constructor
-var ruben = new Persona("Ruben", "Gomez", "Garcia");
+let ruben = new Persona("Ruben", "Gomez", "Garcia");
+console.log(ruben.stringify());
+//Herencia
+class Ciudadano extends Persona {
+    constructor(nombre, apellido1, apellido2, identidad) {
+        super(nombre, apellido1, apellido2);
+        this.identidad = identidad;
+    }
+    stringify() {
+        return super.stringify() + " " + this.identidad;
+    }
+}
+var ciudadanoKane = new Ciudadano("kane", null, null, "1");
+console.log(ciudadanoKane.stringify());
+/*var ciudadanoKane = new Ciudadano();
+var ciudadanoBill: Persona = new Persona("p","p","p");
+
+ciudadanoKane =  new Persona("p","p","p");
+ciudadanoBill = new Ciudadano();*/
 //# sourceMappingURL=app.js.map
