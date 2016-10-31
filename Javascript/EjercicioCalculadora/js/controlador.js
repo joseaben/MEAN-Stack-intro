@@ -8,7 +8,6 @@ var mostradoResultado;
 
 function iniciar(){
     miCalculadora = new Calculadora();
-    var arrayNumeros = new Array();
     limpiarPantalla = true;
     mostradoResultado = false;
 
