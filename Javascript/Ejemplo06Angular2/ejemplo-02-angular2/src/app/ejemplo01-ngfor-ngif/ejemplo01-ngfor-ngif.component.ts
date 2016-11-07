@@ -6,13 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ejemplo01-ngfor-ngif.component.css']
 })
 export class Ejemplo01NgforNgifComponent implements OnInit {
+
+  mostrarInformacion: boolean;
   variableDeInstancia: string;
   tomaArray: number[] = [1,3,5,4,9];
   constructor() { 
     this.variableDeInstancia = "Renderizado componente ngif ngfor!!!";
+    this.mostrarInformacion = false;
   }
 
   ngOnInit() {
+  }
+  cambiarEstadoInformacion(): void{
+    this.mostrarInformacion = !this.mostrarInformacion;
+  }
+  colorEnPares(numero: number): string{
+    if((numero % 2) == 0){
+      return "blue";
+    }
+    return "red";
+  }
+  escribePrueba(numero: number): void{
+    alert(numero);
   }
 
 }
