@@ -11,6 +11,7 @@ import { NumerosPrimosConServicioComponent } from './numeros-primos-con-servicio
 import { NumerosPrimosLeyendaComponent } from './numeros-primos-leyenda/numeros-primos-leyenda.component';
 import { NumerosPrimosFilaComponent } from './numeros-primos-fila/numeros-primos-fila.component';
 import { NumerosPrimosPanelComponent } from './numeros-primos-panel/numeros-primos-panel.component';
+import { MostrarDatosTablaComponent } from './mostrar-datos-tabla/mostrar-datos-tabla.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NumerosPrimosPanelComponent } from './numeros-primos-panel/numeros-prim
     NumerosPrimosConServicioComponent,
     NumerosPrimosLeyendaComponent,
     NumerosPrimosFilaComponent,
-    NumerosPrimosPanelComponent
+    NumerosPrimosPanelComponent,
+    MostrarDatosTablaComponent
   ],
   imports: [
     BrowserModule,
