@@ -12,6 +12,7 @@ import { NumerosPrimosLeyendaComponent } from './numeros-primos-leyenda/numeros-
 import { NumerosPrimosFilaComponent } from './numeros-primos-fila/numeros-primos-fila.component';
 import { NumerosPrimosPanelComponent } from './numeros-primos-panel/numeros-primos-panel.component';
 import { MostrarDatosTablaComponent } from './mostrar-datos-tabla/mostrar-datos-tabla.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MostrarDatosTablaComponent } from './mostrar-datos-tabla/mostrar-datos-
     NumerosPrimosLeyendaComponent,
     NumerosPrimosFilaComponent,
     NumerosPrimosPanelComponent,
-    MostrarDatosTablaComponent
+    MostrarDatosTablaComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,6 @@ import { MostrarDatosTablaComponent } from './mostrar-datos-tabla/mostrar-datos-
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent,NumerosPrimosPanelComponent]
+  bootstrap: [FormularioComponent]
 })
 export class AppModule { }
