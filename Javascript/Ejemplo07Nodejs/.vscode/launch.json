@@ -7,10 +7,10 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Iniciar programa",
-            "program": "${workspaceRoot}/ejemplo-02-require.js",
-            "cwd": "${workspaceRoot}",
-            "args": ["ejemplo-01-base.js"]
+            "name": "ejemplo-03-async.js",
+            "program": "${workspaceRoot}/ejemplo-06-http.js",
+            "cwd": "${workspaceRoot}"//,
+            //"args": ["../Ejemplo07Nodejs",".js"]
         },
         {
             "type": "node",
