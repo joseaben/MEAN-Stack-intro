@@ -1,0 +1,15 @@
+{
+  "name": "ejemplos-nodejs",
+  "version": "0.0.1",
+  "description": "bateria de ejemplos nodejs",
+  "main": "ejemplo-01-base.js",
+  "dependencies": {
+    "bl": "^1.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jose",
+  "license": "ISC"
+}

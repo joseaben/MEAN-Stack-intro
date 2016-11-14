@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "ejemplo-03-async.js",
-            "program": "${workspaceRoot}/ejemplo-06-http.js",
+            "program": "${workspaceRoot}/ejemplo-09-server.js",
             "cwd": "${workspaceRoot}"//,
             //"args": ["../Ejemplo07Nodejs",".js"]
         },
