@@ -4,7 +4,7 @@ var url = require('url');
 var server = http.createServer( (request,response)=>{
     var miUrl = url.parse(request.url,true);
     console.log("URL: " + miUrl.path);
-    if(/^\/clientes$/.test(request.url)){
+    if(/^\/clientes\/[0-9]{3,5}$/.test(request.url)){
         response.writeHead(200,{'content-type':"application/json"});
         response.end(JSON.stringify({"nombre":"Ruben"}));
     }else{
