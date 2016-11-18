@@ -45,5 +45,34 @@ router.post("/conrouterpost",evaluaElVerboHttp);
 
 app.use("/cosacuca",router);
 
+
+var routerRest = express.Router();
+
+routerRest.route("/coches").get((request,response)=>{
+    response.json([{_id:1,marca:"opel",modelo:"corsa"},{_id:2,marca:"audi",modelo:"A4"}]);
+}).post((request,response)=>{
+    //recoger la informacion del body para crear un nuevo coche
+    /*request.body.marca
+    request.body.modelo*/
+    response.json({message:"correcto"});
+});
+//localhost:8080/concesionario/coches/idCoche
+routerRest.route("/coches/:alias").get((request,response)=>{
+    //TODO: obtener el coche a partir de su idCoche
+    response.json({_id:1,marca:"opel",modelo:"corsa"})
+}).delete((request,response)=>{
+    response.json({message:"borrado"});
+}).put((request,response)=>{
+    //TODO: obtener el id y del body obtener marcar y modelo
+    response.json({message:"actualizado"});
+});
+
+app.use("/concesionario",routerRest);
 app.listen(8080);
 console.log("Servidor Iniciado");
+
+/*
+    Response permite :
+    download() end() json() jsonp() redirect() render()
+    send() sendFile() sendStatus()
+*/
