@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost/test");
+mongoose.connect("mongodb://localhost/pepe");
 
 //genera el modelo
 var Libro = mongoose.model("Libro",{

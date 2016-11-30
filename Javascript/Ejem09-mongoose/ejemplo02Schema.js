@@ -17,6 +17,9 @@ var LibroSchema = new Schema({
         ultima_reserva: Date
     }
 });
+
+LibroSchema.add({estado: String});
+
 var Libro = mongoose.model("Libro",LibroSchema);
 
 var lotr =  new Libro({titulo:"Lord of the rings",campos_biblioteca:{ultima_reserva:new Date()}});
