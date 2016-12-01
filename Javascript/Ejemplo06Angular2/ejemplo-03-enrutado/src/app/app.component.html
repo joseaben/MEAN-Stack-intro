@@ -1,0 +1,9 @@
+<h1>
+  {{title}}
+</h1>
+<ul>
+  <li><a [routerLink]="['/listar']"> Lista de Libros</a></li>
+  <li><a [routerLink]="['/consultar','1']"> Consulta de Libros</a></li>
+  <li><a [routerLink]="['/formulario']"> Formulario de Libros</a></li>
+</ul>
+<router-outlet></router-outlet>
