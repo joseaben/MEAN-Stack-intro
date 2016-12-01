@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Iniciar programa",
-            "program": "${workspaceRoot}\\ejemplo03Statics.js",
+            "program": "${workspaceRoot}\\ejemplo05validate.js",
             "cwd": "${workspaceRoot}"
         },
         {

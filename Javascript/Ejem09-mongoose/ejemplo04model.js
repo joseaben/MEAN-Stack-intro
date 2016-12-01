@@ -16,4 +16,4 @@ var LibroSchema = new Schema({
 });
 
 
-model.exports = mongoose.model("Libro".LibroSchema);
+module.exports = mongoose.model("Libro",LibroSchema);
