@@ -10,5 +10,4 @@ export const AppRoutes: Routes =[
     {path:'consultar/:id', component: ConsultaLibroComponent},
     {path:'formulario', component: FormularioLibroComponent}
 
-
 ]

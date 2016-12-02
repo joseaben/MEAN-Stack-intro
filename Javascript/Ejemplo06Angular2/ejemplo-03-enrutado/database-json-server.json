@@ -1,0 +1,20 @@
+{
+    "libros":[
+        {
+            "id":1,
+            "titulo":"El señor de los anillos"
+        },
+        {
+             "id":2,
+            "titulo":"Titulo 2"
+        },
+        {
+             "id":3,
+            "titulo":"Titulo 3"
+        },
+        {
+             "id":4,
+            "titulo":"Titulo 4"
+        }
+    ]
+}
