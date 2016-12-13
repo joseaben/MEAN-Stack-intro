@@ -4,6 +4,12 @@ var Strategy = require('passport-http').BasicStrategy;
 
 var app = express();
 
+app.use((request,response,next)=>{
+    //request.headers.origin para aceptar todas las peticiones que te vengan
+    response.header('Access-Control-Allow-Origin',request.headers.origin);
+    response.header('Access-Control-Allow-Headers','Authorization');
+    next();
+});
 passport.use(new Strategy((username,password,done)=>{
     console.log("username: " + username + "pass: " + password);
     //aqui dentro evaluo si el usuario existe

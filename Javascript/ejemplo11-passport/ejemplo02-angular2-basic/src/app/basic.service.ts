@@ -16,7 +16,7 @@ export class BasicService {
     let username = "luis";
     let password = "luis";
 
-    cabeceraDeSeguridad.append('Authorizacion',"Basic " + username + ":" + password);
+    cabeceraDeSeguridad.append('Authorization',"Basic " + btoa(username + ":" + password));
     let opcionesDeRequest = new RequestOptions({headers:cabeceraDeSeguridad});
     return this.http.get("http://127.0.0.1:8080/home",opcionesDeRequest).map((response: Response)=>{
       return response;
